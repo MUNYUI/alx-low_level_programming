@@ -1,19 +1,13 @@
-#include <main.h>
-#include "_putchar"
+#include "main.h"
+
+#include <stdio.h>
 /**
- * main - Prints Holberton
- * Return: Always 0 (Success)
+ * main - Prints _putchar
+ * Return: Always 0 (Sucess)
  */
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
-	return (0);
+	_putchar('\n')
+
+		return (0);
 }
