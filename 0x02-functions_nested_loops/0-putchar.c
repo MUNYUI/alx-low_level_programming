@@ -1,5 +1,5 @@
-#include "main.h"
-#define "main.h"
+#include "main"
+
 /**
  * main - Prints _putchar
  * Return: Always 0 (Sucess)
