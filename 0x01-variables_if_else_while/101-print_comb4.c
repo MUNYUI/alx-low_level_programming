@@ -1,33 +1,30 @@
-#include <stdio.h>
-
+#include <stdlib.h>
+#include <time.h>
 /**
- * main - prints all possible different combinations of three digits
- * Return: Always 0 (Success)
- */
+* main - print if the number is positive, zero or negative
+*
+* Description: using the main function
+* this program prints " Programming is positive, zero or negative
+* Return: o
+*/
 int main(void)
 {
-	int n, m, l;
+	int n;
 
-	for (n = 48; n < 58; n++)
-	{
-		for (m = 49; m < 58; m++)
+	srand(time(0));
+	n = rand() - RAND_MAX / 2
+		/* your code goes there */
+		if (n > 0)
 		{
-			for (l = 50; l < 58; l++)
-			{
-				if (l > m && m > n)
-				{
-					putchar(n);
-					putchar(m);
-					putchar(l);
-					if (n != 55 || m != 56)
-					{
-						putchar(',');
-						putchar(' ');
-					}
-				}
-			}
+			printf("%i is positive\n", n);
 		}
-	}
-	putchar('\n');
+		else if (n == 0)
+		{
+			printf("%i is zero\n", n);
+		}
+		else if (n < 0)
+		{
+			printf("%i is negative\n", n);
+		}
 	return (0);
 }
