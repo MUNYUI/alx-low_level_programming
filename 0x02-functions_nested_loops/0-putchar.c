@@ -1,5 +1,5 @@
 #include "main.h"
-
+#define "main.h"
 /**
  * main - Prints _putchar
  * Return: Always 0 (Sucess)
@@ -15,6 +15,6 @@ int main(void)
 	_putchar('a');
 	_putchar('r');
 	_putchar('\n');
-	
+
 	return (0);
 }
