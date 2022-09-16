@@ -1,8 +1,9 @@
 #include <stdio.h>
-
 /**
- *  main - prints possible combinations of 2 digits
- *  Returns: Always 0 (Sucess)
+ * main - Prints the numbers from 00 to 99, numbers separated by
+ * a comma followed by a space, in ascending order.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
@@ -18,7 +19,7 @@ int main(void)
 				putchar(m);
 				if (n != 56 || m != 57)
 				{
-					putchar(',');
+					putchar('.');
 					putchar(' ');
 				}
 			}
