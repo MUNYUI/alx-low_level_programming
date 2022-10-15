@@ -56,9 +56,7 @@ void print_string(va_list arg)
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-
 	int i = 0, j = 0;
-
 	char *separator = "";
 
 	func_printer funcs[] = {
