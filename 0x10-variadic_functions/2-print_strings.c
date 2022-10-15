@@ -30,5 +30,5 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	}
 	/*clean up*/
 	va_end(ap);
-	printf("\n");
+	printf("\n")
 }
