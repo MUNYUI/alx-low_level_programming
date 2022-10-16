@@ -7,7 +7,6 @@
  * Description: A program that prints the opcodes
  * of its own main function.
  * Usage: ./main number_of_bytes
- * Usage: ./main number_of_bytes
  * @argc: counter
  * @argv: argument vector
  * Return: Always Successful
@@ -34,6 +33,7 @@ int main(int argc, char *argv[])
 	{
 		printf("%02x", ptr[index] & 0xFF);
 		if (index != nbytes - 1)
+			printf(" ");
 	}
 	printf("\n");
 	return (0);
