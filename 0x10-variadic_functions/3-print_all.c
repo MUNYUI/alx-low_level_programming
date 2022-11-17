@@ -1,84 +1,123 @@
 #include "variadic_functions.h"
 
+#include<stdio.h>
+
+#include<stdarg.h>
+
 /**
- * print_char - print a char
- * @arg: a list of argument pointing
- * to the character to be printed
- * Return: nothing
+ *  * p_char - print char
+ *   * @list:arg
+ *
+ *    * Return: void
  */
 
-void print_char(va_list arg)
-{
-	char c = va_arg(arg, int);
+void p_char(va_list list)
 
-	printf("%c", c);
+{
+
+	printf("%c", va_arg(list, int));
+
 }
+
 /**
- * print_int - print an integer
- * @arg: a list of argument pointing
- * to the character to be printed
- * Return: nothing
+ *  * p_string - print string
+ *   * @list:arg
+ *    * Return: void
  */
 
-void print_int(va_list arg)
+void p_string(va_list list)
 {
-	int n = va_arg(arg, int);
 
-	printf("%d", n);
-}
-/**
- * print_float - print a float
- * @arg: a list of argument pointing
- * to the character to be printed
- * Return: nothing
- */
+	char *str;
 
-void print_float(va_list arg)
-{
-	float n = va_arg(arg, double);
-
-	printf("%f", n);
-}
-/**
- * print_string - print a string
- * @arg: a list of argument pointing
- * to the character to be printed
- * Return: nothing
- */
-
-void print_string(va_list arg)
-{
-	char *str = va_arg(arg, char *);
+	str = va_arg(list, char*);
 
 	if (str == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
+
+		str = "(nil)";
+
+	printf("%s", str);
+
 }
+
 /**
- * print_all - a function that prints anything
- * @format: A string of character representing
- * the argument types
- * Description: If any argument not of type char,
- * int, float or char * is ignored
- * Return: nothing
+ *  * p_integer - print integer
+ *
+ *   * @list:arg
+ *
+ *    * Return: void
  */
+
+void p_integer(va_list list)
+
+{
+
+	printf("%i", va_arg(list, int));
+
+}
+
+/**
+ *  * p_float - print float
+ *
+ *   * @list:arg
+ *
+ *    * Return: void
+ */
+
+void p_float(va_list list)
+
+{
+
+	printf("%f", va_arg(list, double));
+
+}
+
+/**
+ *  * print_all - print everything
+ *
+ *   * @format:arg
+ *
+ *    * Return: void
+ */
+
 void print_all(const char * const format, ...)
 {
-	va_list ap;
+	unsigned int i, j;
 
-	int i = 0, j = 0;
+	t_print t[] = {
 
-	char *separator = "";
+		{"c", p_char},
 
+		{"s", p_string},
 
+		{"i", p_integer},
 
-	func_printer funcs[] = {
-		{"c", print_char},
-		{"i", print_int},
-		{"f", print_float},
-		{"s", print_string}
+		{"f", p_float},
+
+		{NULL, NULL}
+
 	};
-va_start(ap, format);
+	va_list valist;
 
+	char *s = "";
+
+	va_start(valist, format);
+	i = 0;
+	while (format && format[i])
+	{
+		j = 0;
+		while (t[j].x != NULL)
+		{
+			if (*(t[j].x) == format[i])
+			{
+				t[j].T_func(valist);
+				s = ", ";
+				break;
+			}
+			j++;
+		}
+		i++;
+	}
+	va_end(valist);
+	printf("\n");
+}
